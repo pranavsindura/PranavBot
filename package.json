@@ -2,10 +2,15 @@
   "name": "pranavbot",
   "version": "1.0.0",
   "description": "A free to use Discord Bot in progress...",
-  "main": "mybot.js","engines": {"node": "8.11.1","npm": "5.6.0"},
+  "main": "mybot.js",
+  "engines": {
+    "node": "8.11.1",
+    "npm": "5.6.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-, "start": "node mybot.js"  },
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node mybot.js"  
+  },
   "keywords": [],
   "author": "Pranav Sindura",
   "license": "ISC",
