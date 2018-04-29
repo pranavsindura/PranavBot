@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const config = require("/PranavBot/config.json");
+const config = require("./config.json");
 const sql = require('sqlite3');
 const db = new sql.Database('/pranavbot/points.sqlite');
 const util = require('util');
