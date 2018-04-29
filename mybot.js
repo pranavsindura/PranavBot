@@ -1,10 +1,7 @@
 const Discord = require("discord.js");
-const config = require('./config.json');
 const fs = require('fs');
 
 const client = new Discord.Client();
-
-const hasTalkedRecently = new Set();
 
 fs.readdir('./events/', (err, files) => 
 {
