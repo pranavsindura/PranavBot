@@ -1,5 +1,5 @@
 const sql = require('sqlite3');
-const db = new sql.Database('./points.sqlite');
+const db = new sql.Database('./sqldb/points.sqlite');
 const util = require('util');
 
 db.run = util.promisify(db.run);
