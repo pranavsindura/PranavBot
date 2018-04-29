@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const sql = require('sqlite3');
-const db = new sql.Database('/pranavbot/points.sqlite');
+const db = new sql.Database('./points.sqlite');
 const util = require('util');
 
 db.get = util.promisify(db.get);
