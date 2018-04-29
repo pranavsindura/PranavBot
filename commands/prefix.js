@@ -1,8 +1,8 @@
-let config = require('./config.json');
+
 const fs = require('fs');
 const Discord = require('discord.js');
 const sql = require('sqlite3');
-const db = new sql.Database('./points.sqlite');
+const db = new sql.Database('./sqldb/points.sqlite');
 const util = require('util');
 
 db.run = util.promisify(db.run);
@@ -10,7 +10,7 @@ db.get = util.promisify(db.get);
 
 exports.run = (client, message, args) =>
 {
-    if(message.author.id !== config.ownerID)
+    if(message.author.id !== process.env.ownerID)
     {
         message.reply("Command disabled by Owner.");
     }
