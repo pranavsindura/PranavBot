@@ -1,8 +1,8 @@
-const config = require("./config.json");
+
 
 exports.run = (client, message, args) =>
 {
-    if(message.author.id === config.ownerID)
+    if(message.author.id === process.env.ownerID)
     {
         message.delete();
         message.channel.send(args.join(" "));
@@ -10,6 +10,6 @@ exports.run = (client, message, args) =>
     }
     else
     {
-        message.channel.send("Wont work " + message.author + "!");
+        return;
     }
 }
