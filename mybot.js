@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const config = require('pranavsindura/pranavbot/config.json');
+const config = require('/pranavsindura/pranavbot/config.json');
 const fs = require('fs');
 
 const client = new Discord.Client();
