@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 
 exports.run = (db, client, message, args) =>
 {
+  console.log(message.guild.id);
 	db.get(`select prefix from Guilds where id = ${message.guild.id};`)
 	.then((row) => 
 	{

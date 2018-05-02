@@ -3,9 +3,9 @@ const fs = require('fs');
 const Discord = require('discord.js');
 exports.run = (db,client, message, args) =>
 {
-    if(message.author.id !== process.env.ownerID)
+    if(message.author.id !== message.guild.ownerID)
     {
-        message.reply("Command disabled by Owner.");
+        message.reply("Prefix can only be changed by the Owner i.e. " + message.guild.owner.user);
     }
     else
     {
