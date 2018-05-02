@@ -9,15 +9,17 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node mybot.js"  
+    "start": "node mybot.js"
   },
   "keywords": [],
   "author": "Pranav Sindura",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.3.2",
-    "npm": "^5.6.0",
-    "sqlite3": "^4.0.0"  },
+    "express": "^4.16.3",
+    "npm": "^6.0.0",
+    "sqlite3": "^4.0.0"
+  },
   "devDependencies": {},
   "repository": {
     "type": "git",

@@ -1,15 +1,8 @@
 const Discord = require('discord.js');
-const sql = require('sqlite3');
-const db = new sql.Database(appDir + '/points.sqlite');
-const util = require('util');
 
-db.run = util.promisify(db.run);
-db.get = util.promisify(db.get);
-db.all = util.promisify(db.all);
-
-
-exports.run = (client, message) =>
+exports.run = (db, client, message) =>
 {
+
 	db.get(`select * from Guilds where id = ${message.guild.id};`)
 	.then((row) => 
 	{
@@ -82,9 +75,9 @@ exports.run = (client, message) =>
 					try
 					{
 
-						let commandFile = require(`${appDir}/commands/${command}.js`);
+						let commandFile = require(`/app/commands/${command}.js`);
 
-						commandFile.run(client, message, args);
+						commandFile.run(db, client, message, args);
 					}
 					catch(e)
 					{

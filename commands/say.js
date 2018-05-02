@@ -1,5 +1,5 @@
 
-exports.run = (client, message, args) =>
+exports.run = (db, client, message, args) =>
 {
     if(message.author.id === process.env.ownerID)
     {

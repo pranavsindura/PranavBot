@@ -1,14 +1,9 @@
 const fs = require("fs");
 const Discord = require('discord.js');
-const sql = require('sqlite3');
-const db = new sql.Database(appDir + '/points.sqlite');
-const util = require('util');
 
-db.get = util.promisify(db.get);
 
-exports.run = (client, message, args) =>
+exports.run = (db, client, message, args) =>
 {
-
 	db.get(`select * from Guilds where id = ${message.guild.id};`)
 	.then((row) => 
 	{
@@ -26,7 +21,7 @@ exports.run = (client, message, args) =>
         .setColor(0x00ae86)
         .setTitle("Help Menu");
     
-    fs.readdir(appDir + "/commands/", (err, files) =>
+    fs.readdir("/app/commands/", (err, files) =>
     {
         if(err)
         {
