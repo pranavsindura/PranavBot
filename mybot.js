@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const path = require('path');
 const appDir = path.resolve(__dirname);
 const sql = require('sqlite3');
-const db = new sql.Database(appDir + '/points.sqlite', sql.OPEN_READWRITE);
+const db = new sql.Database(appDir + '/points.sqlite');
 const util = require('util');
 
 db.run = util.promisify(db.run);
@@ -50,7 +50,7 @@ app.use(express.static('public'))
 app.get("/", (request, response) => {
   response.sendFile(__dirname + '/views/index.html')
   console.log(Date.now() + " Ping Received");
-  response.sendStatus(200);
+  //response.sendStatus(200);
 });
 
 app.listen(process.env.PORT);

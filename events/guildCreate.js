@@ -19,7 +19,9 @@ exports.run = (db, client, guild) =>
         .setTitle("Hey There!")
         .setDescription("Thank You for Inviting me to " + guild.name + "!")
         .setColor(0x00AE86));
-        
+      
+      client.emit("ready");
+      
         const embed = new Discord.RichEmbed()
         .setColor(0x00ae86)
         .setTitle("Avaiable Commands");
