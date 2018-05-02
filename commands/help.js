@@ -1,7 +1,7 @@
 const fs = require("fs");
 const Discord = require('discord.js');
 const sql = require('sqlite3');
-const db = new sql.Database('/pranavbot/points.sqlite');
+const db = new sql.Database(appDir + '/points.sqlite');
 const util = require('util');
 
 db.get = util.promisify(db.get);
@@ -26,7 +26,7 @@ exports.run = (client, message, args) =>
         .setColor(0x00ae86)
         .setTitle("Help Menu");
     
-    fs.readdir("/pranavbot/commands/", (err, files) =>
+    fs.readdir(appDir + "/commands/", (err, files) =>
     {
         if(err)
         {

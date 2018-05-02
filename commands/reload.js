@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
-const config = require('/PranavBot/config.json');
 const sql = require('sqlite3');
-const db = new sql.Database('/pranavbot/points.sqlite');
+const db = new sql.Database(appDir + '/points.sqlite');
 const util = require('util');
 
 db.get = util.promisify(db.get);
@@ -13,7 +12,7 @@ exports.run = (client, message, args) =>
 	.then((row) => 
 	{
     
-    if(message.author.id === config.ownerID)
+    if(message.author.id === process.env.ownerID)
     {
         if(!args.length || args.length >1)
         {
@@ -31,7 +30,7 @@ exports.run = (client, message, args) =>
     }
     else
     {
-        message.reply("Command disabled by Owner.");
+        return;
     }
 }).catch(err => console.log(err));
 }

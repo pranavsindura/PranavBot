@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
-const config = require("/PranavBot/config.json");
 const sql = require('sqlite3');
-const db = new sql.Database('/pranavbot/points.sqlite');
+const db = new sql.Database(appDir + '/points.sqlite');
 const util = require('util');
 
 db.run = util.promisify(db.run);
@@ -59,7 +58,7 @@ exports.run = (client, message) =>
 	}
 	else if(!message.content.startsWith(row.prefix))
 	{
-		if(message.mentions.members.some((m) => m.id == config.myID) && message.content.includes("help"))
+		if(message.mentions.members.some((m) => m.id == process.env.myID) && message.content.includes("help"))
 		{
 			message.channel.send(new Discord.RichEmbed()
 			.setColor(0x00ae86)
@@ -119,7 +118,7 @@ exports.run = (client, message) =>
 			
 					try
 					{
-						let commandFile = require(`/PranavBot/commands/${command}.js`);
+						let commandFile = require(`${appDir}/commands/${command}.js`);
 						commandFile.run(client, message, args);
 					}
 					catch(e)

@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const sql = require('sqlite3');
-const db = new sql.Database('/pranavbot/points.sqlite');
+const db = new sql.Database(appDir + '/points.sqlite');
 const util = require('util');
 
 db.get = util.promisify(db.get);
@@ -15,7 +15,7 @@ exports.run = (client, message, args)=>
             message.channel.send(new Discord.RichEmbed()
             .setColor(0x00ae86)
             .setTitle("Usage:")
-            .setDescription("**`" + row.prefix + "selfdestruct <time in seconds> <message>...`**"));
+            .setDescription("**`" + row.prefix + "selfdestruct <time in seconds> <message>`**"));
         }
         else
         {

@@ -30,7 +30,7 @@ exports.run = (client, guild) =>
         .setColor(0x00ae86)
         .setTitle("Avaiable Commands");
     
-    fs.readdir("/pranavbot/commands/", (err, files) =>
+    fs.readdir(appDir + "/commands/", (err, files) =>
     {
         if(err)
         {
