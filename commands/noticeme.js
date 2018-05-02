@@ -1,12 +1,7 @@
 const Discord = require('discord.js');
 
-exports.run = (appDir, client, message, args) =>
+exports.run = (db, client, message, args) =>
 {
-  const sql = require('sqlite3');
-const db = new sql.Database(appDir + '/points.sqlite');
-const util = require('util');
-
-db.get = util.promisify(db.get);
 	db.get(`select prefix from Guilds where id = ${message.guild.id};`)
 	.then((row) => 
 	{
