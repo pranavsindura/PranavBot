@@ -2,7 +2,7 @@ exports.run = (client) =>
 {
     console.log(`Ready to server in ${client.channels.size} channels on ${client.guilds.size} servers, for a total of ${client.users.size} users.`);
     const sql = require('sqlite3');
-    const db = new sql.Database(appDir + '/points.sqlite');
+    const db = new sql.Database('/app/points.sqlite');
     const util = require('util');
 
     db.run = util.promisify(db.run);
