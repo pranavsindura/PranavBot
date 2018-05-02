@@ -1,5 +1,4 @@
 const sql = require('sqlite3');
-<<<<<<< HEAD
 const db = new sql.Database(appDir + '/points.sqlite');
 const util = require('util');
 
