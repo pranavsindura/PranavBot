@@ -3,7 +3,7 @@ const fs = require('fs');
 const client = new Discord.Client();
 const path = require('path');
 global.appDir = path.resolve(__dirname);
-
+console.log(appDir);
 fs.readdir(appDir + '/events/', (err, files) => 
 {
 	if (err)
