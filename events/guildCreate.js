@@ -30,11 +30,8 @@ exports.run = (client, guild) =>
         .setColor(0x00ae86)
         .setTitle("Avaiable Commands");
     
-<<<<<<< HEAD
+
     fs.readdir(appDir + "/commands/", (err, files) =>
-=======
-    fs.readdir("./commands/", (err, files) =>
->>>>>>> b6446e51656f27e157189a542fb33999983f83ac
     {
         if(err)
         {
