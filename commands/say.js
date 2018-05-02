@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> b6446e51656f27e157189a542fb33999983f83ac
 
 exports.run = (client, message, args) =>
 {
@@ -9,6 +13,6 @@ exports.run = (client, message, args) =>
     }
     else
     {
-        message.channel.send("Wont work " + message.author + "!");
+        return;
     }
 }

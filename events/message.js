@@ -1,6 +1,10 @@
 const Discord = require('discord.js');
 const sql = require('sqlite3');
+<<<<<<< HEAD
 const db = new sql.Database(appDir + '/points.sqlite');
+=======
+const db = new sql.Database('./sqldb/points.sqlite');
+>>>>>>> b6446e51656f27e157189a542fb33999983f83ac
 const util = require('util');
 
 db.run = util.promisify(db.run);
@@ -14,43 +18,6 @@ exports.run = (client, message) =>
 	.then((row) => 
 	{
 		//Adding Points
-/*
-	if(!message.author.bot && message.channel.type !== "dm")
-	{
-		//Tag help
-		
-		if(message.mentions.members.some((m) => m.id == config.myID) && message.content.includes("help"))
-		{
-			message.channel.send(new Discord.RichEmbed()
-			.setColor(0x00ae86)
-			.setTitle("Help Menu")
-			.addField("Current Prefix", row.prefix)
-			.addField("For More Info","type **`" + row.prefix + "help`**"));
-		}
-
-		db.get(
-			`select * from Members where id = "${message.author.id}";`)
-		.then((row) =>
-		{
-			if(!row)
-			{
-				db.run(
-					`Insert into Members values ("${message.author.username}", "${message.author.id}", 0);`)
-					.catch(err => console.log(err));
-			}
-			else
-			{
-				db.run(
-						`Update Members set points = points+1 where id = "${message.author.id}";`)
-						.catch(err => console.log(err));
-			}
-		})
-		.catch((err) => 
-		{
-			console.log(err);
-		});
-	}
-*/
 	//Handling Messages
 	if(message.author.bot || message.channel.type === "dm")
 	{
@@ -118,7 +85,11 @@ exports.run = (client, message) =>
 			
 					try
 					{
+<<<<<<< HEAD
 						let commandFile = require(`${appDir}/commands/${command}.js`);
+=======
+						let commandFile = require(`./commands/${command}.js`);
+>>>>>>> b6446e51656f27e157189a542fb33999983f83ac
 						commandFile.run(client, message, args);
 					}
 					catch(e)
