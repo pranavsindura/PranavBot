@@ -1,4 +1,4 @@
-exports.run = (client, message, args) =>
+exports.run = (appDir, client, message, args) =>
 {
     if(message.author.id === process.env.ownerID)
     {

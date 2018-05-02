@@ -1,14 +1,7 @@
 
 const fs = require('fs');
 const Discord = require('discord.js');
-const sql = require('sqlite3');
-const db = new sql.Database(appDir + '/points.sqlite');
-const util = require('util');
-
-db.run = util.promisify(db.run);
-db.get = util.promisify(db.get);
-
-exports.run = (client, message, args) =>
+exports.run = (db,client, message, args) =>
 {
     if(message.author.id !== process.env.ownerID)
     {

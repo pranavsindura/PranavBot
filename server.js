@@ -1,37 +1,3 @@
-const Discord = require("discord.js");
-const fs = require('fs');
-const client = new Discord.Client();
-const path = require('path');
-const appDir = path.resolve(__dirname);
-const sql = require('sqlite3');
-const db = new sql.Database(appDir + '/points.sqlite');
-const util = require('util');
-
-db.run = util.promisify(db.run);
-db.get = util.promisify(db.get);
-db.all = util.promisify(db.all);
-
-fs.readdir(appDir + '/events/', (err, files) => 
-{
-	if (err)
-	{
-		 console.log(err);
-		 return;
-	}
-	files.forEach((file) => 
-	{
-		let eventFunction = require(`${appDir}/events/${file}`);
-		let eventName = file.split(".")[0];
-
-		client.on(eventName,  (...args) => 
-		{
-				eventFunction.run(db, client,...args);
-		})
-	});
-});
-
-client.login(process.env.token);
-
 // server.js
 // where your node app starts
 
@@ -63,22 +29,20 @@ const dreams = [
   "Find and count some sheep",
   "Climb a really tall mountain",
   "Wash the dishes"
-];
+]
 
 app.get("/dreams", (request, response) => {
   response.send(dreams)
-});
+})
 
 // could also use the POST body instead of query string: http://expressjs.com/en/api.html#req.body
 app.post("/dreams", (request, response) => {
   dreams.push(request.query.dream)
   response.sendStatus(200)
-});
+})
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log(`Your app is listening on port ${listener.address().port}`)
-});
-
-
+})
 

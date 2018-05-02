@@ -1,9 +1,4 @@
 const Discord = require('discord.js');
-const sql = require('sqlite3');
-const db = new sql.Database(appDir + '/points.sqlite');
-const util = require('util');
-
-db.get = util.promisify(db.get);
 
 function editDice(m, num)
 {
@@ -27,8 +22,9 @@ function editDice(m, num)
     }
 }
 
-exports.run = (client, message, args) =>
+exports.run = (db, client, message, args) =>
 {
+
 	db.get(`select * from Guilds where id = ${message.guild.id};`)
 	.then((row) => 
 	{

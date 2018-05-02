@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-exports.run = (client, member)=>
+exports.run = (db, client, member)=>
 {
     //const channelHere = member.guild.channels.find('name', 'general');
     //if(!channelHere) channelHere = member.guild.channels.find('name', 'welcome');

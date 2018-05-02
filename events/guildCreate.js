@@ -1,13 +1,7 @@
 const Discord = require('discord.js');
 const fs = require('fs');
-const sql = require('sqlite3');
-const db = new sql.Database(appDir + '/sqldb/points.sqlite');
-const util = require('util');
 
-db.run = util.promisify(db.run);
-db.all = util.promisify(db.all);
-
-exports.run = (client, guild) =>
+exports.run = (db, client, guild) =>
 {
     db.run(
         `INSERT INTO Guilds VALUES ("${guild.name}", "${guild.id}", ".");`)
@@ -31,7 +25,7 @@ exports.run = (client, guild) =>
         .setTitle("Avaiable Commands");
     
 
-    fs.readdir(appDir + "/commands/", (err, files) =>
+    fs.readdir("/app/commands/", (err, files) =>
     {
         if(err)
         {
