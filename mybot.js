@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const path = require('path');
 const appDir = path.resolve(__dirname);
 const sql = require('sqlite3');
-const db = new sql.Database(appDir + '/points.sqlite');
+const db = new sql.Database(appDir + '/points.sqlite', sql.OPEN_READWRITE);
 const util = require('util');
 
 db.run = util.promisify(db.run);
@@ -54,6 +54,7 @@ app.get("/", (request, response) => {
 });
 
 app.listen(process.env.PORT);
+
 setInterval(() => {
   http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 280000);
@@ -76,9 +77,5 @@ app.post("/dreams", (request, response) => {
 });
 
 // listen for requests :)
-const listener = app.listen(process.env.PORT, () => {
-  console.log(`Your app is listening on port ${listener.address().port}`)
-});
-
 
 
