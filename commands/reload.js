@@ -1,12 +1,6 @@
 const Discord = require('discord.js');
-<<<<<<< HEAD
 const sql = require('sqlite3');
 const db = new sql.Database(appDir + '/points.sqlite');
-=======
-
-const sql = require('sqlite3');
-const db = new sql.Database('./sqldb/points.sqlite');
->>>>>>> b6446e51656f27e157189a542fb33999983f83ac
 const util = require('util');
 
 db.get = util.promisify(db.get);
