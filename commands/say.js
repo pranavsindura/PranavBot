@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> b6446e51656f27e157189a542fb33999983f83ac
 
 exports.run = (client, message, args) =>
 {
