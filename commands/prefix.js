@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-const fs = require('fs');
-const Discord = require('discord.js');
-const sql = require('sqlite3');
-const db = new sql.Database(appDir + '/points.sqlite');
-=======
 
 const fs = require('fs');
 const Discord = require('discord.js');
 const sql = require('sqlite3');
-const db = new sql.Database('./sqldb/points.sqlite');
->>>>>>> b6446e51656f27e157189a542fb33999983f83ac
+const db = new sql.Database(appDir + '/points.sqlite');
 const util = require('util');
 
 db.run = util.promisify(db.run);
@@ -57,26 +50,6 @@ exports.run = (client, message, args) =>
         })
         .catch(err => console.log(err));
 
-        /*
-        config.prefix = newPrefix;
-        	
-        fs.writeFile("./config.json", JSON.stringify(config, null, 2),(err) => 
-        {
-            if(err)
-            {
-                config.prefix = oldPrefix;
-                return console.log(err);
-            }
-            
-            message.channel.send(new Discord.RichEmbed()
-            .setTitle("Prefix Changed!")
-            .setDescription(`**Prefix Changed to: ${config.prefix}**`)
-            .setColor(0x00AE86));
-            //.addField("","To recover the Prefix type\n `@PranavBot# prefix`"));
-            console.log(`Prefix Changed to: ${config.prefix}`);
-            //fs.readFile("./config.json", (err,data)=>{if(err) throw err; console.log(JSON.parse(data))});
-            
-        });*/
     }
     }
 }
