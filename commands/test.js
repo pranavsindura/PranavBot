@@ -6,7 +6,7 @@ exports.run = (client, message, args) =>
             return;
         else
         {
-            client.emit(args[0]);
+            client.emit(args[0], message.guild);
         }
     }
     else
