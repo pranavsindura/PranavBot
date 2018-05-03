@@ -20,4 +20,5 @@ exports.run = (db, client) =>
 /*
 Guilds -> name char(50), id real, prefix char(1)
 Members -> name char(50), id real, points real
+Recent -> id char(20)
 */

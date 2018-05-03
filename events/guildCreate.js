@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const fs = require('fs');
 
 exports.run = (db, client, guild) =>
 {
@@ -22,29 +21,12 @@ exports.run = (db, client, guild) =>
       
       client.emit("ready");
       
-        const embed = new Discord.RichEmbed()
-        .setColor(0x00ae86)
-        .setTitle("Avaiable Commands");
-    
-
-    fs.readdir("/app/commands/", (err, files) =>
-    {
-        if(err)
-        {
-            return console.log(err);
-        }
-
-        let comm = [];
-        files.forEach((file) =>
-        {
-            comm.push(file.split(".")[0]);
-        });
-
-        embed.addField("**Prefix:**", ".");
-        embed.addField("**Commands:**", comm.join(", "))
-        channelHere.send(embed);
-
-    });
+      channelHere.send(new Discord.RichEmbed()
+			.setColor(0x00ae86)
+			.setTitle("Help Menu")
+			.addField("Current Prefix", ".")
+			.addField("For More Info","type **`" + "."+ "help`**"));
+      
 
     } 
 }   

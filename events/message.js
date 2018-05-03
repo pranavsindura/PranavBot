@@ -1,4 +1,6 @@
 const Discord = require('discord.js');
+/* global Map */
+const queue = new Map();
 
 exports.run = (db, client, message) =>
 {
@@ -68,27 +70,20 @@ exports.run = (db, client, message) =>
 
 				const args = message.content.slice(row.prefix.length).trim().split(/ +/g);
 				const command = args.shift().toLowerCase();
-
-				try
-				{
 			
 					try
 					{
 
 						let commandFile = require(`/app/commands/${command}.js`);
 
-						commandFile.run(db, client, message, args);
+						commandFile.run(db, client, message, args, queue);
 					}
 					catch(e)
 					{
 						console.log(e);
 					}
 			
-			
-				}catch(err)
-				{
-					console.log(err);
-        		}
+				
 					}
 		}).catch(e => console.log(e));
 
