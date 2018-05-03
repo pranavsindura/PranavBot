@@ -19,11 +19,11 @@ exports.run = (db, client, member)=>
             
         if(member.user.bot)
         {
-            member.addRole(member.guild.roles.find("name", "Bot"));
+            member.addRole(member.guild.roles.find("name", "Bot")).catch(e => console.log(e));
         }
         else
         {
-            member.addRole(member.guild.roles.find("name", "Human"));
+            member.addRole(member.guild.roles.find("name", "Human")).catch(e => console.log(e));
         }
 
         return;

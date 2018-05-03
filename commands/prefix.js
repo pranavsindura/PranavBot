@@ -5,7 +5,7 @@ exports.run = (db,client, message, args) =>
 {
     if(message.author.id !== message.guild.ownerID)
     {
-        message.reply("Prefix can only be changed by the Owner i.e. " + message.guild.owner.user);
+        message.channel.send("Prefix can only be changed by the Owner, " + message.guild.owner.user);
     }
     else
     {
