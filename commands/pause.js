@@ -7,9 +7,14 @@ exports.run = (db, client, message, args, queue) =>
         {   
             if(message.author.id === queue.get(message.guild.id).nowPlaying.requestedBy || message.author.id === message.guild.ownerID )
             {
-              queue.get(message.guild.id).connection.disconnect();//.dispatcher.end();
-              queue.delete(message.guild.id);
-              message.channel.send("Music is Stopped and Queue is Cleared!");
+              const dispatcher = queue.get(message.guild.id).connection.dispatcher;
+              if(dispatcher.paused) return;
+              if(dispatcher)
+              {
+                dispatcher.pause();
+                message.channel.send("Music has been Paused!");
+              }
+              
             }
           else
           {

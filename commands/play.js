@@ -53,14 +53,14 @@ exports.run =  (db, client, message, args, queue) =>
                       queueConstruct.connection = connection;
                         console.log("Connected to " + voiceChannel.name);
                         message.channel.send(songInfo.title + " has been added to Queue.");
-                        play(message.guild, queue, song, 1);
+                        play(client, message, queue, song, 1);
                     }).catch(e => console.log(e));
 
                   }
                   else
                   {
                     serverQueue.songList.push(song);
-                    console.log(serverQueue.songList.length);
+                  
                     message.channel.send(songInfo.title + " has been added to Queue.");
                   }
                     
@@ -84,19 +84,20 @@ exports.run =  (db, client, message, args, queue) =>
     .catch(e => console.log(e));
 }
 
-function play(guild, queue, song, n)
+function play(client, message, queue, song, n)
 {
-  const serverQueue = queue.get(guild.id);
+  const serverQueue = queue.get(message.guild.id);
   const dispatcher  = serverQueue.connection.playStream(ytdl(song.url.toString()), {filter : "audioonly"});
   serverQueue.nowPlaying = song;
   dispatcher.setVolume(1);
-  console.log(serverQueue.songList.length);
 
     dispatcher.on("end", () =>{
                         if(n === serverQueue.songList.length)
-                        {serverQueue.voiceChannel.leave();queue.delete(guild.id);console.log(serverQueue.songList[n].song);}
+                        {serverQueue.voiceChannel.leave();queue.delete(message.guild.id);}
                         else
-                        {play(guild, queue, serverQueue.songList[n], n+1);console.log(serverQueue.songList[n].song);}
+                        { 
+                          play(client, message, queue, serverQueue.songList[n], n+1);
+                        }
                         
                   })
                   .on("error", e => console.log(e));
