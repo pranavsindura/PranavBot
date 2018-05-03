@@ -24,7 +24,7 @@ exports.run = (db, client, message, args) =>
         embed.addField("**Prefix Commands**", "prefix");
         embed.addField("**Help Commands**", "help");
         embed.addField("**Random Commands**", "clap, noticeme, ping, rolldice, say");
-        embed.addField("**Music Commands**", "play, stop");
+        embed.addField("**Music Commands**", "play, pause, resume, stop, nowplaying");
         embed.addField("**Point Commands**", "points");
         embed.addField("Forgot Prefix?","To grab your current prefix, type,\n **`@PranavBot#5465 help`**");
         message.channel.send(embed);
