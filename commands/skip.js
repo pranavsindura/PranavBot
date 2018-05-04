@@ -10,17 +10,15 @@ exports.run = (db, client, message, args, queue) =>
           {
             if(message.author.id === serverQueue.nowPlaying.requestedBy || message.author.id === message.guild.ownerID )
             {
-              serverQueue.songList = [];
-              serverQueue.voiceChannel.leave();//.dispatcher.end();
-              queue.delete(message.guild.id);
-              message.channel.send("Music is Stopped and Queue is Cleared!");
+              serverQueue.connection.dispatcher.end();
+              message.channel.send("Music was Skipped!");
             }
           else
           {
             message.reply("You did not request this music!");
           }
           }else
-          {message.channel.send("There is nothing to stop!");}
+          {message.channel.send("There is nothing to skip!");}
         }
         else
         {

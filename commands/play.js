@@ -25,7 +25,7 @@ exports.run =  (db, client, message, args, queue) =>
                 else
                 {
                   const songInfo = await ytdl.getInfo(args[0]).catch(e=>{console.log(e); message.channel.send("Invalid URL"); return;});
-                  
+                  //console.log(songInfo.url);
                   const song = {
                                       title: songInfo.title,
                                       url: args[0],
@@ -53,7 +53,7 @@ exports.run =  (db, client, message, args, queue) =>
                       queueConstruct.connection = connection;
                         console.log("Connected to " + voiceChannel.name);
                         message.channel.send(songInfo.title + " has been added to Queue.");
-                        play(client, message, queue, song, 1);
+                        play( message, queue, song);
                     }).catch(e => console.log(e));
 
                   }
@@ -84,20 +84,33 @@ exports.run =  (db, client, message, args, queue) =>
     .catch(e => console.log(e));
 }
 
-function play(client, message, queue, song, n)
+function play(message, queue, song)
 {
+ 
   const serverQueue = queue.get(message.guild.id);
-  const dispatcher  = serverQueue.connection.playStream(ytdl(song.url.toString()), {filter : "audioonly"});
+  //if(!song){}
+  const dispatcher  = serverQueue.connection.playStream(ytdl(song.url), {filter : 'audioonly'});
   serverQueue.nowPlaying = song;
-  dispatcher.setVolume(1);
-
+  console.log(serverQueue.nowPlaying);
+  dispatcher.setVolume(serverQueue.volume);
+  serverQueue.songList.shift();
     dispatcher.on("end", () =>{
-                        if(n === serverQueue.songList.length)
+                        if(serverQueue.songList[0])
+                        {
+                          play(message, queue, serverQueue.songList[0]);
+                        }
+                        else
+                        {
+                          serverQueue.voiceChannel.leave();queue.delete(message.guild.id);return;
+                        }
+                        
+                        /*if(!serverQueue.length) {return;}
+                        else if(n === serverQueue.songList.length)
                         {serverQueue.voiceChannel.leave();queue.delete(message.guild.id);}
                         else
                         { 
                           play(client, message, queue, serverQueue.songList[n], n+1);
-                        }
+                        }*/
                         
                   })
                   .on("error", e => console.log(e));
