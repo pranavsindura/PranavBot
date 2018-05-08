@@ -1,6 +1,6 @@
 # PranavBot
 
-PranavBot was created by Pranav#5038 while trying to learn Javacript.
+PranavBot was created by Pranav#5038 while trying to learn Javascript.
 
 It can do some stuff including Playing Music!
 Hosted on [Glitch](https://glitch.com)!
