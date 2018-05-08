@@ -8,7 +8,7 @@ exports.run = (db, client, message, args, queue) =>
         {   const serverQueue = queue.get(message.guild.id);
          if(serverQueue)
          {
-            if(message.author.id === serverQueue.nowPlaying.requestedBy || message.author.id === message.guild.ownerID )
+            if(message.author.id === message.guild.ownerID || message.author.id === serverQueue.nowPlaying.requestedBy)
             {
               const dispatcher = serverQueue.connection.dispatcher;
               if(dispatcher.paused) return;

@@ -1,8 +1,10 @@
 dependencies:
   discord.js: 11.3.2
+  escape-markdown: 1.0.4
   express: 4.16.3
-  node-opus: 0.2.7
+  node-opus: 0.3.0
   npm: 6.0.0
+  simple-youtube-api: 5.0.2
   sqlite3: 4.0.0
   ytdl-core: 0.20.2
 packages:
@@ -81,6 +83,13 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-5+Ch+e9DtMi6klxcWpboBtFoc7s=
+  /cross-fetch/2.1.1:
+    dependencies:
+      node-fetch: 2.1.2
+      whatwg-fetch: 2.0.4
+    dev: false
+    resolution:
+      integrity: sha512-3W94GTFVrSQWw/xHsLpX+z3ArhDKjoh7pJfl4+5sbch0V17ZfPjhZ+gnUdz56t7eoFXI9DhdJtaZTr7jmPL2EQ==
   /debug/2.6.9:
     dependencies:
       ms: 2.0.0
@@ -137,6 +146,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
+  /escape-markdown/1.0.4:
+    dev: false
+    resolution:
+      integrity: sha1-dS10vHrj+wt8aE6tJqq05aeMT/c=
   /etag/1.8.1:
     dev: false
     engines:
@@ -250,6 +263,10 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha1-4/o1e3c9phnybpXwSdBVxyeW+Gs=
+  /iso8601-duration/1.1.1:
+    dev: false
+    resolution:
+      integrity: sha512-dE/f+GO/ptSFgsM7ccVOYb/82PdCrSAHdmFZgAKwdoUWq8NHg5ygohklQBqVoqcN+CHPwE+f+pWuu2HZPnBU/Q==
   /long/4.0.0:
     dev: false
     resolution:
@@ -320,10 +337,17 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=
-  /node-opus/0.2.7:
+  /node-fetch/2.1.2:
+    dev: false
+    engines:
+      node: 4.x || >=6.0.0
+    resolution:
+      integrity: sha1-q4hOjn5X44qUR1POxwb3iNF2i7U=
+  /node-opus/0.3.0:
     cpu:
       - x64
       - arm
+      - arm64
       - ia32
     dependencies:
       bindings: 1.2.1
@@ -331,7 +355,7 @@ packages:
       nan: 2.10.0
     dev: false
     engines:
-      node: '>=0.10.0'
+      node: '>=5.10.0'
     optionalDependencies:
       ogg-packet: 1.0.0
     os:
@@ -341,7 +365,7 @@ packages:
       - freebsd
     requiresBuild: true
     resolution:
-      integrity: sha1-W3JuKXlbCxJ7TIfmYtTegWhAV5w=
+      integrity: sha512-Hih2TCi/vQUY4D9PBiATT6fluJSjMJPLBfCNgAxJx03v6jT+UlVmXUKR62RXYWyijhXNghsFJMyeBe7MBm3cmQ==
   /npm/6.0.0:
     bundledDependencies:
       - abbrev
@@ -595,6 +619,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-BvE/TwpZX4FXExxOxZyRGQQv651MSwmWKZGqvmPcRIjDqWub67kTKuIMx43cZZrS/cBBzwBcNDWoFxt2XEFIpQ==
+  /simple-youtube-api/5.0.2:
+    dependencies:
+      cross-fetch: 2.1.1
+      iso8601-duration: 1.1.1
+    dev: false
+    resolution:
+      integrity: sha512-MtFToFLoX4eWNVUcqhbJ3J7SN8tBNaHRAHC4RKzSCW7cEVVZygNHa3nhCEWVINBoI1fmxjEUW7zwdlChYNuoZg==
   /snekfetch/3.6.4:
     dev: false
     resolution:
@@ -651,6 +682,10 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
+  /whatwg-fetch/2.0.4:
+    dev: false
+    resolution:
+      integrity: sha512-dcQ1GWpOD/eEQ97k66aiEVpNnapVj90/+R+SXTPYGHpYBBypfKJEQjLrvMZ7YXbKm21gXd4NcuxUTjiv1YtLng==
   /ws/4.1.0:
     dependencies:
       async-limiter: 1.0.0
@@ -674,8 +709,10 @@ shrinkwrapMinorVersion: 5
 shrinkwrapVersion: 3
 specifiers:
   discord.js: ^11.3.2
+  escape-markdown: ^1.0.4
   express: ^4.16.3
-  node-opus: ^0.2.7
+  node-opus: ^0.3.0
   npm: ^6.0.0
+  simple-youtube-api: ^5.0.2
   sqlite3: ^4.0.0
   ytdl-core: ^0.20.2

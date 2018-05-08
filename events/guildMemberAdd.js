@@ -11,7 +11,7 @@ exports.run = (db, client, member)=>
         channelHere = member.guild.channels.find('name' , welcomeChannels[i].toString());
         if(channelHere)
         {
-            console.log(channelHere.name); 
+            //console.log(channelHere.name); 
                 channelHere.send(new Discord.RichEmbed()
                 .setTitle("Welcome!")
                 .setDescription("Everyone Welcome " + member.user + " to " + member.guild.name + "! Enjoy your Stay!")
@@ -19,11 +19,29 @@ exports.run = (db, client, member)=>
             
         if(member.user.bot)
         {
-            member.addRole(member.guild.roles.find("name", "Bot")).catch(e => console.log(e));
+          let botRole = member.guild.roles.find("name", "Bot");
+          if(botRole)
+          {
+            member.addRole(botRole).catch(e => console.log(e));
+          }
+          else 
+          {
+            console.log("Could not find Bot Role");
+          }
+            
         }
         else
         {
-            member.addRole(member.guild.roles.find("name", "Human")).catch(e => console.log(e));
+          let humanRole = member.guild.roles.find("name", "Human");
+          if(humanRole)
+          {
+            member.addRole(humanRole).catch(e => console.log(e));
+          }
+          else 
+          {
+            console.log("Could not find Human Role");
+          }
+
         }
 
         return;

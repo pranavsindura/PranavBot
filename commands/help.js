@@ -22,7 +22,7 @@ exports.run = (db, client, message, args) =>
 
         embed.addField("**Prefix**", row.prefix);
         embed.addField("**Prefix Commands**", "prefix");
-        embed.addField("**Help Commands**", "help");
+        embed.addField("**Help Commands**", "help, info");
         embed.addField("**Random Commands**", "clap, noticeme, ping, rolldice, say");
         embed.addField("**Music Commands**", "play, pause, resume, skip, stop, queue, nowplaying");
         embed.addField("**Point Commands**", "points");

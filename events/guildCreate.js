@@ -19,7 +19,7 @@ exports.run = (db, client, guild) =>
         .setDescription("Thank You for Inviting me to " + guild.name + "!")
         .setColor(0x00AE86));
       
-      client.emit("ready");
+       client.user.setActivity(`${client.guilds.size} servers`,{type: 'Listening'});
       
       channelHere.send(new Discord.RichEmbed()
 			.setColor(0x00ae86)

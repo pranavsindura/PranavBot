@@ -11,7 +11,7 @@ exports.run = (db, client, message, args, queue) =>
             if(message.author.id === serverQueue.nowPlaying.requestedBy || message.author.id === message.guild.ownerID )
             {
               serverQueue.songList = [];
-              serverQueue.voiceChannel.leave();//.dispatcher.end();
+              serverQueue.voiceChannel.leave('Stop Command used');//.dispatcher.end();
               queue.delete(message.guild.id);
               message.channel.send("Music is Stopped and Queue is Cleared!");
             }
