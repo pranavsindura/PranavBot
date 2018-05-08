@@ -5,5 +5,5 @@ exports.run = (db, client, guild) =>
     db.run(
         `delete from Guilds where id = "${guild.id}";`)
         .catch(err => console.log(err));
-  client.emit("ready");
+ client.user.setActivity(`${client.guilds.size} servers`,{type: 'Listening'});
 }

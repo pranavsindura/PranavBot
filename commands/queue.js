@@ -11,25 +11,28 @@ exports.run = (db, client, message, args, queue) =>
       if(serverQueue)
       {
         client.fetchUser(serverQueue.nowPlaying.requestedBy).then((u) =>{
-        message.channel.send(`Now Playing: **${serverQueue.nowPlaying.title}**, Requested By: ${u.username}\n\n`);
-        text = text.concat("Upcoming:\n\n");
+        message.channel.send(`Now Playing:\n**${serverQueue.nowPlaying.title}**, Requested By: ${u.username}`);
+        text = text.concat("\nUpcoming:\n\n");
         
         if(serverQueue.songList.length)
         {
-        serverQueue.songList.forEach((element, index) => 
-        {
-          
-                     text = text.concat(`${index+1}. **${element.title}**\n`);
-       
-          
-        });
-          console.log(text);
-          message.channel.send(text);  
+          let set = Math.ceil(serverQueue.songList.length/20);
+          for(let i=0; i<set; i++)
+          {
+            for(let j=i*20; j<(i+1)*20; j++)
+            {
+              if(serverQueue.songList[j]) text = text.concat(`${j+1}. **${serverQueue.songList[j].title}** \n`);
+              else break;
+            }
+             message.channel.send(text);
+             text = "";
+          }
+          //console.log(text); 
         }
         else
         {
         text = text.concat("-");
-          console.log(text);
+          //console.log(text);
           message.channel.send(text);  
         }
                    

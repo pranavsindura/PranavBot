@@ -6,7 +6,7 @@ exports.run = (db, client, message, args, queue) =>
       let np = queue.get(message.guild.id);
       if(np)
       {
-        client.fetchUser(np.nowPlaying.requestedBy).then((u) =>{message.channel.send(`Now Playing: ${np.nowPlaying.title}\nRequested By: ${u}`);});  
+        client.fetchUser(np.nowPlaying.requestedBy).then((u) =>{message.channel.send(`Now Playing: ${np.nowPlaying.title}\nRequested By: ${u.username}`);});  
       }
       else
       {

@@ -10,7 +10,7 @@ exports.run = (db, client, message, args, queue) =>
           {
             if(message.author.id === serverQueue.nowPlaying.requestedBy || message.author.id === message.guild.ownerID )
             {
-              serverQueue.connection.dispatcher.end();
+              serverQueue.connection.dispatcher.end('Skip Command Used');
               message.channel.send("Music was Skipped!");
             }
           else
