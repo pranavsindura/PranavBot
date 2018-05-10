@@ -15,7 +15,7 @@ exports.run = (db, client, message, args) =>
     }
     else
     {
-        message.channel.send(":ping_pong: **Pong!**");
+        message.channel.send(":ping_pong: **Pong!** `" + client.ping + "ms`");
     }
 }).catch(err => console.log(err));
 }

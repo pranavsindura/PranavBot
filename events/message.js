@@ -4,13 +4,13 @@ const queue = new Map();
 
 exports.run = (db, client, message) =>
 {
-
+ //if(!message.channel.permissionsFor(message.guild.me).has("MANAGE_MESSAGES")) {console.log(message.guild.me); return message.author.send("Please Make sure that I have **Manage Messages** Permission!");}
 	db.get(`select * from Guilds where id = ${message.guild.id};`)
 	.then((row) => 
 	{
 		//Adding Points
 	//Handling Messages
-	if(message.author.bot || message.channel.type === "dm")
+	if(message.author.bot || message.channel.type === "dm" || message.guild.id === "264445053596991498") //discord bot list server 8k+ members
 	{
 		return;
 	}

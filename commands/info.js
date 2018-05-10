@@ -37,7 +37,7 @@ exports.run = (db, client, message, args)=>
            message.channel.send(new Discord.RichEmbed()
             .setColor(0x00ae86)
             .setTitle("Bot Information")
-            .setDescription("PranavBot was created by Pranav#5038 while trying to learn Javacript.\nIts a bot with many useless commands.\nOh and it can also play music!\nHosted on **Glitch.com**")
+            .setDescription("PranavBot was created by Pranav#5038 while trying to learn Javascript.\nIts a bot with many useless commands.\nOh and it can also play music!\nHosted on **Glitch.com**")
              .addField("List of Commands", "Type **`" + row.prefix + "help`** to list all the commands\n")
             .addField("Stats",`**Servers:** ${client.guilds.size}\n**Users:** ${client.users.size}\n**Uptime:** ${uptimeStr}\n`)
           .addField("Useful Links", "**Invite PranavBot:** https://discordbots.org/bot/435848685532741643\n**Support Server:** https://discordapp.com/invite/Ru8PMym\n**Hosting Server:** https://pranavbot.glitch.me\n")

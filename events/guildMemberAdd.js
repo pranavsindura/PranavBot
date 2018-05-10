@@ -11,17 +11,19 @@ exports.run = (db, client, member)=>
         channelHere = member.guild.channels.find('name' , welcomeChannels[i].toString());
         if(channelHere)
         {
+         // if(!channelHere.permissionsFor(member.guild.me).has("MANAGE_MESSAGES")) return member.guild.owner.send("Please Make sure that I have **Manage Messages, Manage Roles** Permission!");
             //console.log(channelHere.name); 
                 channelHere.send(new Discord.RichEmbed()
                 .setTitle("Welcome!")
                 .setDescription("Everyone Welcome " + member.user + " to " + member.guild.name + "! Enjoy your Stay!")
                 .setColor(0x00AE86));
-            
+          /*  
         if(member.user.bot)
         {
           let botRole = member.guild.roles.find("name", "Bot");
           if(botRole)
           {
+            
             member.addRole(botRole).catch(e => console.log(e));
           }
           else 
@@ -40,11 +42,10 @@ exports.run = (db, client, member)=>
           else 
           {
             console.log("Could not find Human Role");
-          }
+          
+        }*/
 
-        }
-
-        return;
+  
         }
     
     }

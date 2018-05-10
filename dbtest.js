@@ -1,5 +1,5 @@
 const sql = require('sqlite3');
-const db = new sql.Database('/app/.data/sqlite.db');
+const db = new sql.Database('/app/points.sqlite');
 const db2 = new sql.Database('/app/points.sqlite');
 const util = require('util');
 
@@ -12,12 +12,12 @@ db.run(
 )
 //.then(() =>{db2.all(`select * from Guilds`).then((rows) => console.log(rows)).catch(err => console.log(err));})
 .catch(err => console.log(err));*/
-//db.all(`select * from Recent`).then((rows) => console.log(rows)).catch(err => console.log(err));
-//db.run(`delete from Guilds where id = "434762457496420352"`);
+db.all(`select * from Recent`).then((rows) => console.log(rows)).catch(err => console.log(err));
+//db.run(`delete from Recent where id = "306731218643451905"`);
 /*
 db.run(
         `INSERT INTO Guilds VALUES ("Forumers Guild (GT)", "430069383008747561", ".");`)
-        .catch((err) => console.log(err));*/
+        .catch((err) => console.log(err));*//*
 db.run(
 `update Guilds set id = "437663208505868290" where name="testing";`
-).then(db.all(`select * from Recent`).then((rows) => console.log(rows)).catch(err => console.log(err)));
+).then(db.all(`select * from Recent`).then((rows) => console.log(rows)).catch(err => console.log(err)));*/
