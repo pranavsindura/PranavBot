@@ -13,6 +13,7 @@ exports.run = (db, client, guild) =>
 
     if(channelHere)
     {
+      //if(!channelHere.permissionsFor(guild.me).has("MANAGE_MESSAGES")) return guild.owner.send("Please Make sure that I have **Manage Messages** Permission!");
         console.log(channelHere.name);
         channelHere.send(new Discord.RichEmbed()
         .setTitle("Hey There!")
