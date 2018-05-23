@@ -34,7 +34,7 @@ Hosted on [Glitch](https://glitch.com)!
 The data of the Guilds and Members is stored in an SQLITE Database.
 It has the Following Structure.
 
-#### points.sqlite
+#### 1. points.sqlite
 ##### Guilds
 >Stores information of the Guilds the Bot is in
 
@@ -49,7 +49,7 @@ name|id|points
 ---|---|---
 Pranav|306731218643451905|602
 
-#### log.sqlite
+#### 2. log.sqlite
 >coming soon
 
 ## Useful Links
