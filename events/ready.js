@@ -1,7 +1,8 @@
 exports.run = (db, client) =>
 {
     console.log(`Ready to server in ${client.guilds.size} servers, for a total of ${client.users.size} users.`);
-    /*db.run(
+    //db.run(`delete * from Recent;`);
+  /*db.run(
         `Create table if not exists Guilds (name char(50), id char(20), prefix char(1));`
     )
   .then(() =>{db.all(`select * from Guilds`).then((rows) => console.log(rows)).catch(err => console.log(err));})

@@ -13,7 +13,7 @@ db.run(
 //.then(() =>{db2.all(`select * from Guilds`).then((rows) => console.log(rows)).catch(err => console.log(err));})
 .catch(err => console.log(err));*/
 db.all(`select * from Recent`).then((rows) => console.log(rows)).catch(err => console.log(err));
-//db.run(`delete from Recent where id = "306731218643451905"`);
+db.run(`delete from Recent where id = "447089794833448971"`);
 /*
 db.run(
         `INSERT INTO Guilds VALUES ("Forumers Guild (GT)", "430069383008747561", ".");`)

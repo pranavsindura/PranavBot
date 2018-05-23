@@ -6,7 +6,7 @@ exports.run = (db, client, guild) =>
         `INSERT INTO Guilds VALUES ("${guild.name}", "${guild.id}", ".");`)
         .catch((err) => console.log(err));
 
-    const welcomeChannels = ['general', 'welcome', 'lounge'];
+    const welcomeChannels = ['general', 'welcome', 'lounge','chat'];
     for(let i=0; i<welcomeChannels.length; i++)
     {
     let channelHere = guild.channels.find('name' , welcomeChannels[i].toString());
