@@ -11,11 +11,17 @@ exports.run = (db, client, message, args, queue) =>
             if(message.author.id === message.guild.ownerID || message.author.id === serverQueue.nowPlaying.requestedBy)
             {
               const dispatcher = serverQueue.connection.dispatcher;
-              if(dispatcher.paused) return;
               if(dispatcher)
               {
-                dispatcher.pause();
+                if(dispatcher.paused) return;
+                else dispatcher.pause();
+               // if(serverQueue.songList.length === 1){message.channel.send("Queue has only One song! Add more to shuffle!");}
+                //else
+              //  {
+                //  dispatcher.end();
+                  
                 message.channel.send("Music has been Paused!");
+              //  }
               }
               
             }

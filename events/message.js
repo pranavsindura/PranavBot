@@ -1,16 +1,19 @@
 const Discord = require('discord.js');
 /* global Map */
+/*global Set*/
 const queue = new Map();
+const recent = new Set();
 
 exports.run = (db, client, message) =>
 {
+   if(message.channel.type === "dm") return;
  //if(!message.channel.permissionsFor(message.guild.me).has("MANAGE_MESSAGES")) {console.log(message.guild.me); return message.author.send("Please Make sure that I have **Manage Messages** Permission!");}
 	db.get(`select * from Guilds where id = ${message.guild.id};`)
 	.then((row) => 
 	{
 		//Adding Points
 	//Handling Messages
-	if(message.author.bot || message.channel.type === "dm" || message.guild.id === "264445053596991498") //discord bot list server 8k+ members
+	if(message.author.bot || message.guild.id === "264445053596991498") //discord bot list server 8k+ members
 	{
 		return;
 	}
@@ -52,21 +55,23 @@ exports.run = (db, client, message) =>
 	else
 	{
 	
-		db.get(`select * from Recent where id = "${message.author.id}";`)
+		/*db.get(`select * from Recent where id = "${message.author.id}";`)
 		.then((r) => 
-		{
-			if(r)
+		{*/
+			if(recent.has(message.author.id))
 			{
 				return;
 			}else
 			{
-				db.run(`insert into Recent values ("${message.author.id}");`)
-				.catch(e => console.log(e));
+        recent.add(message.author.id);
+				/*db.run(`insert into Recent values ("${message.author.id}");`)
+				.catch(e => console.log(e));*/
 
 				setTimeout(() => {
-					db.run(`delete from Recent where id = "${message.author.id}";`)
-					.catch(e => console.log(e));
-				}, 3000);
+          recent.delete(message.author.id);
+					//db.run(`delete from Recent where id = "${message.author.id}";`)
+					//.catch(e => console.log(e));
+				}, 2500);
 
 				const args = message.content.slice(row.prefix.length).trim().split(/ +/g);
 				const command = args.shift().toLowerCase();
@@ -85,7 +90,7 @@ exports.run = (db, client, message) =>
 			
 				
 					}
-		}).catch(e => console.log(e));
+		//}).catch(e => console.log(e));
 
 	}
 }).catch(err => console.log(err));

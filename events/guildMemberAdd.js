@@ -4,7 +4,7 @@ exports.run = (db, client, member)=>
 {
     //const channelHere = member.guild.channels.find('name', 'general');
     //if(!channelHere) channelHere = member.guild.channels.find('name', 'welcome');
-    const welcomeChannels = ['general', 'welcome', 'lounge'];
+    const welcomeChannels = ['general', 'welcome', 'lounge','chat'];
     let channelHere;
     for(let i=0; i<welcomeChannels.length; i++)
     {

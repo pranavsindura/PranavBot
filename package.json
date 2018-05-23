@@ -22,7 +22,9 @@
     "ytdl-core": "^0.20.2",
     "node-opus": "^0.3.0",
     "simple-youtube-api": "^5.0.2",
-    "escape-markdown": "^1.0.4"
+    "escape-markdown": "^1.0.4",
+    "shuffle-array": "^2.0.0",
+    "ocr-space-api": "^1.0.1"
   },
   "devDependencies": {},
   "repository": {
