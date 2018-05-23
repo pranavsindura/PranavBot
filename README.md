@@ -47,12 +47,6 @@ PranavBot|434762457496420352|**.**
 name|id|points
 ---|---|---
 Pranav|306731218643451905|602
-##### Recent
->Stores IDs of the people who message and are removed from the Table after 3s, although it may be better off storing it in memory
-
-id|
----|
-306731218643451905|
 
 ## Useful Links
 1. Invite PranavBot: <https://discordbots.org/bot/435848685532741643>
